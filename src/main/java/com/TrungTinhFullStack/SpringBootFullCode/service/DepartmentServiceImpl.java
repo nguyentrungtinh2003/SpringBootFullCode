@@ -50,6 +50,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public Department findDepartmentByName(String departmentName) {
-        return departmentRepository.findByDepartmentNameIgnoreCase(departmentName);
+        Department dep = departmentRepository.findByDepartmentNameIgnoreCase(departmentName);
+        return dep;
     }
 }
