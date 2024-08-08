@@ -1,0 +1,17 @@
+#spring:
+#  application:
+#    name: SpringBootFullCode
+#
+#  welcome:
+#    message: "Welcome myWebsite!"
+#
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/springboot
+#    username: root
+#    password: tinh2003
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true

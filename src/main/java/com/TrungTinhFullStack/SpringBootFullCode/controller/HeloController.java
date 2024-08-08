@@ -1,17 +1,22 @@
 package com.TrungTinhFullStack.SpringBootFullCode.controller;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HeloController {
 
-   @GetMapping("/")
-    public  String HelloWorld() {
-        return "Welcome my website by Trung Tinh Fullstack";
+    private static final Logger LOGGER = LoggerFactory.getLogger(HeloController.class);
+
+    @Value("${welcome.message}")
+    private String welcomeMessage;
+
+    @GetMapping("/")
+    public String helloWorld() {
+        LOGGER.info("Received request to / endpoint");
+        return welcomeMessage;
     }
 }

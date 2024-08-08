@@ -1,5 +1,6 @@
 package com.TrungTinhFullStack.SpringBootFullCode.controller;
 
+import com.TrungTinhFullStack.SpringBootFullCode.controller.DepartmentController;
 import com.TrungTinhFullStack.SpringBootFullCode.entity.Department;
 import com.TrungTinhFullStack.SpringBootFullCode.service.DepartmentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -56,12 +57,12 @@ class DepartmentControllerTest {
     @Test
     void getDepartmentById() throws Exception {
         Long departmentId = 1L;
-
         Mockito.when(departmentService.getDepartmentById(departmentId))
                 .thenReturn(department);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/departments/{id}", departmentId)
-                        .contentType(MediaType.APPLICATION_JSON))
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+
     }
 }
