@@ -1,6 +1,7 @@
 package com.TrungTinhFullStack.SpringBootFullCode.Controller;
 
 import com.TrungTinhFullStack.SpringBootFullCode.Entity.Department;
+import com.TrungTinhFullStack.SpringBootFullCode.Error.DepartmentNotFoundException;
 import com.TrungTinhFullStack.SpringBootFullCode.Service.DepartmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}")
-    public Department getDepartmentByID(@PathVariable Long id) {
+    public Department getDepartmentByID(@PathVariable Long id) throws DepartmentNotFoundException {
         LOGGER.info("Get department by id");
         return departmentService.getDepartmentByID(id);
     }

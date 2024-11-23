@@ -1,11 +1,13 @@
 package com.TrungTinhFullStack.SpringBootFullCode.Service;
 
 import com.TrungTinhFullStack.SpringBootFullCode.Entity.Department;
+import com.TrungTinhFullStack.SpringBootFullCode.Error.DepartmentNotFoundException;
 import com.TrungTinhFullStack.SpringBootFullCode.Repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService{
@@ -25,7 +27,8 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public Department getDepartmentByID(Long id) {
-        return departmentRepository.findById(id).orElse(null);
+        Department department = departmentRepository.findById(id).orElseThrow(() -> new DepartmentNotFoundException("Department not avalid"));
+         return department;
     }
 
     @Override
